@@ -1,3 +1,3 @@
 # KeyboardTester
 
-available at https://eeoms.github.io/keyboardtester/
+Available at https://eeoms.github.io/keyboardtester/
