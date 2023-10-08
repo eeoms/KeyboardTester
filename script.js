@@ -19,86 +19,75 @@ document.addEventListener('keydown', (event) => {
   
     const keyElement = document.getElementById(pressedKey);
     if (pressedKey == 'shift') {
+        const lshift = document.getElementById('lshift');
+        const rshift = document.getElementById('rshift');
+        
+        lshift.classList.add('active');
+        rshift.classList.add('active');
+    } else if (pressedKey == 'control') {
+        const lctrl = document.getElementById('lctrl');
+        const rctrl = document.getElementById('rctrl');
+
+        lctrl.classList.add('active');
+        rctrl.classList.add('active');
+    } else if (pressedKey == 'os') {
+        const lwin = document.getElementById('lwin');
+        const rwin = document.getElementById('rwin');
+
+        lwin.classList.add('active');
+        rwin.classList.add('active');
+    } else if (pressedKey == 'alt') {
+        const lalt = document.getElementById('lalt');
+        const ralt = document.getElementById('ralt');
+
+        lalt.classList.add('active');
+        ralt.classList.add('active');
+    } else if (pressedKey == ' ') {
+        const space = document.getElementById('space');
+
+        space.classList.add('active');
+    } else if (keyElement) {
+        keyElement.classList.add('active');
+    }
+});
+
+
+document.addEventListener('keyup', (event) => {
+    if(holding) return;
+
+    const pressedKey = event.key.toLowerCase(); // Get the lowercase key name to match the key IDs in HTML
+  
+    const keyElement = document.getElementById(pressedKey);
+    if (pressedKey == 'shift') {
         const lshift = document.getElementById('lshift')
         const rshift = document.getElementById('rshift')
         
-        if (holding) {
-            lshift.classList.add('active');
-            rshift.classList.add('active');
-        } else if (!holding) {
-            lshift.classList.add('active');
-            rshift.classList.add('active');
-            setTimeout(() => {
-                lshift.classList.remove('active');
-                rshift.classList.remove('active');
-            }, 100);
-        }
-
+        lshift.classList.remove('active');
+        rshift.classList.remove('active');
     } else if (pressedKey == 'control') {
-        const lctrl = document.getElementById('lctrl')
-        const rctrl = document.getElementById('rctrl')
+        const lctrl = document.getElementById('lctrl');
+        const rctrl = document.getElementById('rctrl');
 
-        if (holding) {
-            lctrl.classList.add('active');
-            rctrl.classList.add('active');
-        } else if (!holding) {
-            lctrl.classList.add('active');
-            rctrl.classList.add('active');
-            setTimeout(() => {
-                lctrl.classList.remove('active');
-                rctrl.classList.remove('active');
-            }, 100);
-        }
+        lctrl.classList.remove('active');
+        rctrl.classList.remove('active');
     } else if (pressedKey == 'os') {
-        const lwin = document.getElementById('lwin')
-        const rwin = document.getElementById('rwin')
+        const lwin = document.getElementById('lwin');
+        const rwin = document.getElementById('rwin');
 
-        if (holding) {
-            lwin.classList.add('active');
-            rwin.classList.add('active');
-        } else if (!holding) {
-            lwin.classList.add('active');
-            rwin.classList.add('active');
-            setTimeout(() => {
-                lwin.classList.remove('active');
-                rwin.classList.remove('active');
-            }, 100);
-        }
+        lwin.classList.remove('active');
+        rwin.classList.remove('active');
     } else if (pressedKey == 'alt') {
-        const lalt = document.getElementById('lalt')
-        const ralt = document.getElementById('ralt')
+        const lalt = document.getElementById('lalt');
+        const ralt = document.getElementById('ralt');
 
-        if (holding) {
-            lalt.classList.add('active');
-            ralt.classList.add('active');
-        } else if (!holding) {
-            lalt.classList.add('active');
-            ralt.classList.add('active');
-            setTimeout(() => {
-                lalt.classList.remove('active');
-                ralt.classList.remove('active');
-            }, 100);
-        }
+        lalt.classList.remove('active');
+        ralt.classList.remove('active');
     } else if (pressedKey == ' ') {
-        const space = document.getElementById('space')
+        const space = document.getElementById('space');
 
-        if (holding) {
-            space.classList.add('active');
-        } else if (!holding) {
-            space.classList.add('active');
-            setTimeout(() => {
-                space.classList.remove('active');
-            }, 100);
-        }
+        space.classList.remove('active');
     } else if (keyElement) {
-        if (holding) {
-            keyElement.classList.add('active');
-        } else if (!holding) {
-            keyElement.classList.add('active');
-        setTimeout(() => {
-            keyElement.classList.remove('active');
-        }, 100);
-    }
+        keyElement.classList.remove('active');
     }
 });
 
